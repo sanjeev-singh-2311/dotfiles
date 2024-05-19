@@ -1,0 +1,71 @@
+import = [
+"~/.config/alacritty/catppuccin/catppuccin-mocha.toml" # Dark Mode
+# "~/.config/alacritty/catppuccin/catppuccin-latte.toml" # Light  Mode
+]
+
+# background_opacity = 0.87
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+
+[font]
+size = 8
+
+[font.bold]
+family = "mononoki"
+style = "Bold"
+
+[font.bold_italic]
+family = "mononoki"
+style = "Bold Italic"
+
+[font.italic]
+family = "mononoki"
+style = "Italic"
+
+[font.normal]
+family = "mononoki"
+style = "Regular"
+
+# Keyboard Bindings here ->
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Shift|Super"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F11"
+mods = "None"
+
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+
+[shell]
+program = "/usr/bin/bash"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 0
+y = 0
+
+[window.dimensions]
+columns = 175
+lines = 27
+
+[window]
+opacity = 0.9
+# decorations = "None"
+blur = true
+# startup_mode = "Fullscreen"
