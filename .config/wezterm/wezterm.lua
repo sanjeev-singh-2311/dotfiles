@@ -4,9 +4,12 @@ local wezterm = require("wezterm")
 -- Variable to hold the configuration
 local config = wezterm.config_builder()
 
-config.color_scheme = "Catppuccin Mocha (Gogh)"
+config.color_scheme = "tokyonight"
 
 config.tab_bar_at_bottom = true
+
+-- Turn off that annoying bell
+config.audible_bell = "Disabled"
 
 -- Font style setup
 config.font = wezterm.font_with_fallback({
@@ -32,10 +35,9 @@ bar.apply_to_config(config)
 -- Tab bar appearance to change font and stuff
 config.window_frame = {
 	font = wezterm.font({ family = "InconsolataGo", weight = "Regular" }),
-	font_size = 12.0,
 }
 
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.7
 config.window_decorations = "NONE"
 
 -- Wezterm keybindings based on TMUX

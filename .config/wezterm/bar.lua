@@ -14,10 +14,10 @@ local config = {
 	clock_icon = "󰃰",
 	cwd_icon = "",
 	enabled_modules = {
-		username = true,
-		hostname = true,
+		username = false,
+		hostname = false,
 		clock = true,
-		cwd = true,
+		cwd = false,
 	},
 	ansi_colors = {
 		workspace = 8,
