@@ -5,7 +5,10 @@ export TERM="xterm-256color"
 export LC_ALL="en_US.UTF-8" # Tells tmux that UTF-8 is supported
 export LANG="en_US.UTF-8" # Same as above
 
-eval "$(oh-my-posh init zsh --config ~/.themes/oh-my-posh/themes/tokyonight_storm.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.toml)"
+# eval "$(oh-my-posh init zsh --config ~/.cache/oh-my-posh/themes/tokyonight_storm.omp.json)"
+# eval "$($HOME/Desktop/OMP/oh-my-posh/src/testCLI init zsh --config ~/.config/ohmyposh/config.toml)"
+# eval "$(testCLI init zsh --config ~/.config/ohmyposh/config.toml)"
 
 # Set directory to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -60,3 +63,19 @@ alias l='eza -la --ignore-glob=. --icons=always'   # show long listing but no hi
 
 # Shell Integration
 eval "$(fzf --zsh)"
+
+alias pwoff="sudo systemctl poweroff"
+alias rboot="sudo systemctl reboot"
+
+# Ranger cd to last visited location upon quitting
+alias ranger='ranger --choosedir=$HOME/.rangerdir; cd "$(cat $HOME/.rangerdir)"'
+
+# Night light filters using Redshift
+alias nighton="redshift -O 5000"
+alias nightoff="redshift -x"
+
+# Terminal Clock
+alias clock="tty-clock -s -c"
+
+# Krabby instant search
+alias krabname="krabby name"
