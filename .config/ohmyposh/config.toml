@@ -14,7 +14,7 @@ enable_cursor_positioning = true
   style = 'plain'
   background = 'transparent'
   foreground = 'p:terminal-magenta'
-  template = "{{.Path }}"
+  template = "{{ .Path }}"
 
   [blocks.segments.properties]
   style = 'full'
@@ -24,7 +24,7 @@ enable_cursor_positioning = true
     style = 'plain'
     foreground = 'p:pastal-grey'
     background = 'transparent'
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} {{ if gt .Behind 0 }}<cyan></cyan>{{ end }}{{ if gt .Behind 0 }}<cyan></cyan>{{ end }}'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} {{ if gt .Behind 0 }}<cyan></cyan>{{ end }}{{ if gt .Ahead 0 }}<cyan></cyan>{{ end }}'
 
     [blocks.segments.properties]
       branch_icon = ''
@@ -34,7 +34,7 @@ enable_cursor_positioning = true
 [[blocks]]
   type = 'prompt'
   alignment = 'right'
-  overflow = 'hidden'
+  # overflow = 'hidden'
 
   [[blocks.segments]]
     type = 'executiontime'
@@ -103,7 +103,7 @@ enable_cursor_positioning = true
       "{{ if gt .Code 0 }}p:terminal-red{{ end }}",
       "{{ if eq .Code 0 }}p:light-sky-blue{{ end }}",
     ]
-    template = ''
+    template = '❯'
 
 [transient_prompt]
     foreground_templates = [
@@ -111,12 +111,12 @@ enable_cursor_positioning = true
       "{{ if eq .Code 0 }}p:light-sky-blue{{ end }}",
     ]
   background = 'transparent'
-  template = ' '
+  template = '❯ '
 
 [secondary_prompt]
   foreground = 'p:light-sky-blue'
   background = 'transparent'
-  template = ' '
+  template = '❯❯ '
 
 [palette]
   blue-bell = '#9aa5ce'
