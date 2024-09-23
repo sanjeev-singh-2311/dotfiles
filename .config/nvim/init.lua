@@ -28,3 +28,6 @@ vim.opt.smarttab = true
 vim.opt.shiftwidth = 4
 -- vim.opt.softtabstop = 4
 -- vim.opt.expandtab = true
+
+-- Right neotree
+vim.api.nvim_set_keymap("n", "<leader>e", ":Neotree toggle right reveal<CR>", { noremap = true, silent = true })
