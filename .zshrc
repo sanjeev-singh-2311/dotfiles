@@ -6,9 +6,6 @@ export LC_ALL="en_US.UTF-8" # Tells tmux that UTF-8 is supported
 export LANG="en_US.UTF-8" # Same as above
 
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.toml)"
-# eval "$(oh-my-posh init zsh --config ~/.cache/oh-my-posh/themes/tokyonight_storm.omp.json)"
-# eval "$($HOME/Desktop/OMP/oh-my-posh/src/testCLI init zsh --config ~/.config/ohmyposh/config.toml)"
-# eval "$(testCLI init zsh --config ~/.config/ohmyposh/config.toml)"
 
 # Set directory to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
