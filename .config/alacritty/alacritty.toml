@@ -1,14 +1,16 @@
+[general]
+
+# background_opacity = 0.87
+live_config_reload = true
 import = [
 "~/.config/alacritty/catppuccin/catppuccin-mocha.toml" # Dark Mode
 # "~/.config/alacritty/catppuccin/catppuccin-latte.toml" # Light  Mode
 ]
 
-# background_opacity = 0.87
-live_config_reload = true
+[terminal]
 
 [colors]
 draw_bold_text_with_bright_colors = true
-
 
 [font]
 size = 8
@@ -41,7 +43,6 @@ action = "ToggleFullscreen"
 key = "F11"
 mods = "None"
 
-
 [scrolling]
 history = 10000
 multiplier = 3
@@ -49,7 +50,7 @@ multiplier = 3
 [selection]
 save_to_clipboard = false
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/zsh"
 
 [window.class]
