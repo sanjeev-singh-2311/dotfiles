@@ -1,122 +1,7 @@
-version = 2
-final_space = true
 console_title_template = ' {{ .Folder }} :: {{if .Root}}Admin{{end}}'
-# To get cursor position on zsh and bash
+version = 3
 enable_cursor_positioning = true
-
-[[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
-
-  [[blocks.segments]]
-  type = 'path'
-  style = 'plain'
-  background = 'transparent'
-  foreground = 'p:terminal-magenta'
-  template = "{{ .Path }}"
-
-  [blocks.segments.properties]
-  style = 'full'
-
-  [[blocks.segments]]
-    type = 'git'
-    style = 'plain'
-    foreground = 'p:pastal-grey'
-    background = 'transparent'
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} {{ if gt .Behind 0 }}<cyan></cyan>{{ end }}{{ if gt .Ahead 0 }}<cyan></cyan>{{ end }}'
-
-    [blocks.segments.properties]
-      branch_icon = ''
-      commit_icon = '@'
-      fetch_status = true
-
-[[blocks]]
-  type = 'prompt'
-  alignment = 'right'
-  # overflow = 'hidden'
-
-  [[blocks.segments]]
-    type = 'executiontime'
-    style = 'plain'
-    foreground = 'p:terminal-yellow'
-    background = 'transparent'
-    template = '{{ .FormattedMs }} '
-
-    [blocks.segments.properties]
-      threshold = 5000
-
-
-  [[blocks.segments]]
-    type = 'node'
-    style = 'plain'
-    foreground = 'p:pistachio-green'
-    template = ' {{ .Full }} '
-
-  [[blocks.segments]]
-    type = 'php'
-    style = 'plain'
-    foreground = 'p:terminal-blue'
-    template = ' {{ .Full }} '
-
-  [[blocks.segments]]
-    type = 'python'
-    style = 'plain'
-    foreground = 'p:terminal-yellow'
-    template = ' {{ .Full }} '
-
-  [[blocks.segments]]
-    type = 'julia'
-    style = 'plain'
-    foreground = 'p:terminal-magenta'
-    template = ' {{ .Full }} '
-
-  [[blocks.segments]]
-    type = 'ruby'
-    style = 'plain'
-    foreground = 'p:terminal-red'
-    template = ' {{ .Full}} '
-
-  [[blocks.segments]]
-    type = 'go'
-    style = 'plain'
-    foreground = 'p:light-sky-blue'
-    template = 'ﳑ {{ .Full}} '
-
-  [[blocks.segments]]
-    type = 'command'
-    style = 'plain'
-    foreground = 'p:white-blue'
-
-    [blocks.segments.properties]
-      command = 'git log --pretty=format:%cr -1 || date +%H:%M:%S'
-      shell = 'zsh'
-
-[[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
-  [[blocks.segments]]
-    type = 'text'
-    style = 'plain'
-    foreground_templates = [
-      "{{ if gt .Code 0 }}p:terminal-red{{ end }}",
-      "{{ if eq .Code 0 }}p:light-sky-blue{{ end }}",
-    ]
-    template = '❯'
-
-[transient_prompt]
-    foreground_templates = [
-      "{{ if gt .Code 0 }}p:terminal-red{{ end }}",
-      "{{ if eq .Code 0 }}p:light-sky-blue{{ end }}",
-    ]
-  background = 'transparent'
-  template = '❯ '
-
-[secondary_prompt]
-  foreground = 'p:light-sky-blue'
-  background = 'transparent'
-  template = '❯❯ '
+final_space = true
 
 [palette]
   blue-bell = '#9aa5ce'
@@ -135,3 +20,119 @@ enable_cursor_positioning = true
   terminal-white = '#c0caf5'
   terminal-yellow = '#e0af68'
   white-blue = '#a9b1d6'
+
+[secondary_prompt]
+  template = '❯❯ '
+  foreground = 'p:light-sky-blue'
+  background = 'transparent'
+
+[transient_prompt]
+  template = '❯ '
+  foreground = ''
+  background = 'transparent'
+  foreground_templates = ['{{ if gt .Code 0 }}p:terminal-red{{ end }}', '{{ if eq .Code 0 }}p:light-sky-blue{{ end }}']
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '{{ .Path }}'
+    foreground = 'p:terminal-magenta'
+    background = 'transparent'
+    type = 'path'
+
+    [blocks.segments.properties]
+      style = 'full'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} {{ if gt .Behind 0 }}<cyan></cyan>{{ end }}{{ if gt .Ahead 0 }}<cyan></cyan>{{ end }}'
+    foreground = 'p:pastal-grey'
+    background = 'transparent'
+    type = 'git'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      commit_icon = '@'
+      fetch_status = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '{{ .FormattedMs }} '
+    foreground = 'p:terminal-yellow'
+    background = 'transparent'
+    type = 'executiontime'
+
+    [blocks.segments.properties]
+      threshold = 5000
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = ' {{ .Full }} '
+    foreground = 'p:pistachio-green'
+    background = ''
+    type = 'node'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = ' {{ .Full }} '
+    foreground = 'p:terminal-blue'
+    background = ''
+    type = 'php'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = ' {{ .Full }} '
+    foreground = 'p:terminal-yellow'
+    background = ''
+    type = 'python'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = ' {{ .Full }} '
+    foreground = 'p:terminal-magenta'
+    background = ''
+    type = 'julia'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = ' {{ .Full}} '
+    foreground = 'p:terminal-red'
+    background = ''
+    type = 'ruby'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = 'ﳑ {{ .Full}} '
+    foreground = 'p:light-sky-blue'
+    background = ''
+    type = 'go'
+
+  [[blocks.segments]]
+    style = 'plain'
+    foreground = 'p:white-blue'
+    background = ''
+    type = 'command'
+
+    [blocks.segments.properties]
+      command = 'git log --pretty=format:%cr -1 || date +%H:%M:%S'
+      shell = 'zsh'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '❯'
+    foreground = ''
+    background = ''
+    type = 'text'
+    foreground_templates = ['{{ if gt .Code 0 }}p:terminal-red{{ end }}', '{{ if eq .Code 0 }}p:light-sky-blue{{ end }}']
