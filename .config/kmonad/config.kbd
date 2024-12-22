@@ -1,0 +1,60 @@
+(defcfg
+	input (device-file "/dev/input/by-id/usb-LITEON_Dell_Wireless_Device-event-kbd")
+	output (uinput-sink "My Kmonad output")
+
+	fallthrough true
+
+	allow-cmd false
+
+	implicit-around around
+)
+
+(defalias
+	;; Left home row mods
+	lsh (tap-hold-next-release 250 a lsft)
+	lmt (tap-hold-next-release 250 s lmet)
+	lal (tap-hold-next-release 250 d lalt)
+	lct (tap-hold-next-release 250 f lctl)
+
+	;; Right home row mods
+	rct (tap-hold-next-release 250 j lctl)
+	ral (tap-hold-next-release 250 k lalt)
+	rmt (tap-hold-next-release 250 l lmet)
+	rsh (tap-hold-next-release 250 ; lsft)
+
+	modl (layer-toggle default-layer)
+
+	numl (layer-toggle number-layer)
+
+	;; Capslocks acts as both esc and return
+	;; cap (tap-hold-next-release 100 esc ret)
+)
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet cmp  rctl
+)
+(deflayer mod-layer
+  grv   1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab   q    w    e    r    t    y    u    i    o    p    [    ]    \
+  esc   @lsh @lmt @lal @lct g    h    @rct @ral @rmt @rsh '    ret
+  @numl z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl  lmet @modl          spc            ralt rmet cmp  rctl
+)
+(deflayer default-layer
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  ret a    s    d    f    g    left down up  right ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt          bspc            ralt rmet cmp  rctl
+)
+(deflayer number-layer
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    [    ]    r    t    7    8    9    0    p    [    ]    \
+  caps _    _    _    _    g    4    5    6    l    ;    '    ret
+  lsft -    =    c    v    1    2    3    \    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet cmp  rctl
+)
