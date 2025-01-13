@@ -13,9 +13,21 @@ config.audible_bell = "Disabled"
 
 -- Font style setup
 config.font = wezterm.font_with_fallback({
-	"mononoki",
-	"InconsolataGo",
+	"Mononoki Nerd Font",
 })
+
+-- GPU acceleration settings
+config.front_end = "WebGpu"
+
+config.webgpu_preferred_adapter = {
+	backend = "Vulkan",
+	device = 5966,
+	device_type = "DiscreteGpu",
+	driver = "NVIDIA",
+	driver_info = "565.57.01",
+	name = "NVIDIA GeForce MX110",
+	vendor = 4318,
+}
 
 config.initial_cols = 175
 config.initial_rows = 27
@@ -34,7 +46,7 @@ bar.apply_to_config(config)
 
 -- Tab bar appearance to change font and stuff
 config.window_frame = {
-	font = wezterm.font({ family = "InconsolataGo", weight = "Regular" }),
+	font = wezterm.font({ family = "Mononoki Nerd Font", weight = "Regular" }),
 }
 
 config.window_background_opacity = 0.7

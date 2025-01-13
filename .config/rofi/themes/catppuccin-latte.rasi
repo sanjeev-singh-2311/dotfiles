@@ -9,7 +9,7 @@
     grey: #9ca0b0;
 
     width: 600;
-    font: "mononoki Regular 10";
+    font: "Mononoki Nerd Font Regular 10";
 }
 
 element-text, element-icon , mode-switcher {
