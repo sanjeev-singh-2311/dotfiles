@@ -1,6 +1,6 @@
 # Environment variables
 export EDITOR="/usr/bin/nvim"
-export PATH="$HOME/bin:$PATH" # Adds the ~/bin to PATH
+export PATH="$HOME/.ghcup/bin:$PATH" # Adds the ~/bin to PATH
 export TERM="xterm-256color"
 export LC_ALL="en_US.UTF-8" # Tells tmux that UTF-8 is supported
 export LANG="en_US.UTF-8" # Same as above
@@ -63,9 +63,6 @@ eval "$(fzf --zsh)"
 
 alias pwoff="sudo systemctl poweroff"
 alias rboot="sudo systemctl reboot"
-
-# Ranger cd to last visited location upon quitting
-alias ranger='ranger --choosedir=$HOME/.rangerdir; cd "$(cat $HOME/.rangerdir)"'
 
 # Night light filters using Redshift
 alias nighton="redshift -O 5000"
