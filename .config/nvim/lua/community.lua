@@ -10,7 +10,6 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.recipes.telescope-nvchad-theme" },
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
-  { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
   { import = "astrocommunity.color.transparent-nvim" },
   -- { import = "astrocommunity.snippet.nvim-snippets" },
   -- import/override with your plugins folder
