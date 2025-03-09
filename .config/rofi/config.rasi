@@ -1,9 +1,9 @@
 
 configuration{
     modi: "run,drun,window,emoji";
-    icon-theme: "Oranchelo";
+    icon-theme: "Qogir-dark";
     show-icons: true;
-    terminal: "alacritty";
+    terminal: "wezterm";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
