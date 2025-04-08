@@ -11,6 +11,7 @@ return {
   { import = "astrocommunity.recipes.telescope-nvchad-theme" },
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
   { import = "astrocommunity.color.transparent-nvim" },
+  { import = "astrocommunity.game.leetcode-nvim" },
   -- { import = "astrocommunity.snippet.nvim-snippets" },
   -- import/override with your plugins folder
 }
