@@ -3,8 +3,9 @@
 # background_opacity = 0.87
 live_config_reload = true
 import = [
-"~/.config/alacritty/catppuccin/catppuccin-mocha.toml" # Dark Mode
-# "~/.config/alacritty/catppuccin/catppuccin-latte.toml" # Light  Mode
+    "~/.config/alacritty/colorscheme/tokyo-night.toml"
+# "~/.config/alacritty/colorscheme/catppuccin-mocha.toml" # Dark Mode
+# "~/.config/alacritty/colorscheme/catppuccin-latte.toml" # Light  Mode
 ]
 
 [terminal]
@@ -43,6 +44,11 @@ action = "ToggleFullscreen"
 key = "F11"
 mods = "None"
 
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "Return"
+mods = "Alt"
+
 [scrolling]
 history = 10000
 multiplier = 3
@@ -66,7 +72,7 @@ columns = 175
 lines = 27
 
 [window]
-opacity = 0.8
+opacity = 0.7
 decorations = "None"
 blur = true
 # startup_mode = "Fullscreen"
