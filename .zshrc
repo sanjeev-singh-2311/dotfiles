@@ -73,3 +73,15 @@ alias clock="tty-clock -s -c"
 
 # Krabby instant search
 alias krabname="krabby name"
+
+# FFMPEG aliases - X11grab for now
+# $1 -> framerate, $2 -> output file
+ffmpeg_record_screen() {
+    screen_size=$(xrandr | grep '*' | awk '{print $1}')
+    ffmpeg -f x11grab -video_size $screen_size -framerate $1 -i :0.0 $2
+}
+
+# FFMPEG compress video to more supported formats
+ffmpeg_compress() {
+    ffmpeg -i $1 -c:v libx264 -pix_fmt yuv420p -preset slow -crf 21 $2
+}
