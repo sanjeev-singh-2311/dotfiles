@@ -31,3 +31,10 @@ vim.opt.shiftwidth = 4
 
 -- Right neotree
 vim.api.nvim_set_keymap("n", "<leader>e", ":Neotree toggle right reveal<CR>", { noremap = true, silent = true })
+
+-- LSP Lines out of the box.. peak
+-- vim.diagnostic.config {
+--   virtual_lines = {
+--     current_line = true,
+--   },
+-- }

@@ -40,10 +40,6 @@ config.window_padding = {
 	bottom = 0,
 }
 
--- Wezterm bar style -> credits to adriankarlen
-local bar = require("bar")
-bar.apply_to_config(config)
-
 -- Tab bar appearance to change font and stuff
 config.window_frame = {
 	font = wezterm.font({ family = "Mononoki Nerd Font", weight = "Regular" }),

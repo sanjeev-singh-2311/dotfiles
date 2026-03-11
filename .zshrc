@@ -29,7 +29,8 @@ zinit light Aloxaf/fzf-tab
 autoload -U compinit && compinit
 
 # keybindings to emacs mode
-bindkey -e
+bindkey -v
+KEYTIMEOUT=1
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
@@ -52,11 +53,19 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
+export TODO_LIST_FILE_LOCATION="$HOME/.local/share/todolist"
+if [ -e "$TODO_LIST_FILE_LOCATION" ]; then
+	local content=$(cat "$TODO_LIST_FILE_LOCATION")
+	echo "$content"
+else
+	echo "No todos for the day"
+fi
+
 alias grep='grep --color=auto'
 # Eza aliases
 alias ls='eza --color=auto --icons=always'
-alias ll='eza -la --ignore-glob=.. --icons=always'   # show long listing of all except ".."
-alias l='eza -la --ignore-glob=. --icons=always'   # show long listing but no hidden dotfiles except "."
+alias ll='eza -la --ignore-glob ".." --icons=always'   # show long listing of all except ".."
+alias l='eza -la --ignore-glob ".*" --icons=always'   # show long listing but no hidden dotfiles except "."
 
 # Shell Integration
 eval "$(fzf --zsh)"
@@ -65,7 +74,7 @@ alias pwoff="sudo systemctl poweroff"
 alias rboot="sudo systemctl reboot"
 
 # Night light filters using Redshift
-alias nighton="redshift -O 5000"
+alias nighton="redshift -O 6000"
 alias nightoff="redshift -x"
 
 # Terminal Clock
@@ -85,3 +94,10 @@ ffmpeg_record_screen() {
 ffmpeg_compress() {
     ffmpeg -i $1 -c:v libx264 -pix_fmt yuv420p -preset slow -crf 21 $2
 }
+
+# Copy a file path to uri
+copy_uri_list() {
+	echo -n "file://$PWD/$1" | xclip -selection clipboard -t text/uri-list
+}
+
+[[ ! -r '/home/sanjeev/.opam/opam-init/init.zsh' ]] || source '/home/sanjeev/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
