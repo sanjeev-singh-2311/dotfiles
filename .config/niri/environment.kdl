@@ -1,0 +1,9 @@
+environment {
+	XCURSOR_THEME "GoogleDot-Black"
+	XCURSOR_SIZE "24"
+}
+
+cursor {
+	xcursor-theme "GoogleDot-Black"
+	xcursor-size 24
+}
