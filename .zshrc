@@ -99,5 +99,8 @@ ffmpeg_compress() {
 copy_uri_list() {
 	echo -n "file://$PWD/$1" | xclip -selection clipboard -t text/uri-list
 }
+copy_uri_list_wl() {
+	echo -n "file://$PWD/$1" | wl-copy --type text/uri-list
+}
 
 [[ ! -r '/home/sanjeev/.opam/opam-init/init.zsh' ]] || source '/home/sanjeev/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
