@@ -1,7 +1,7 @@
 # Environment variables
 export EDITOR="/usr/bin/nvim"
 export PATH="$HOME/.ghcup/bin:$PATH" # Adds the ~/bin to PATH
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 export LC_ALL="en_US.UTF-8" # Tells tmux that UTF-8 is supported
 export LANG="en_US.UTF-8" # Same as above
 
@@ -56,7 +56,9 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 export TODO_LIST_FILE_LOCATION="$HOME/.local/share/todolist"
 if [ -e "$TODO_LIST_FILE_LOCATION" ]; then
 	local content=$(cat "$TODO_LIST_FILE_LOCATION")
-	echo "$content"
+	if [[ $content != "" ]]; then
+		echo "$content"
+  fi
 else
 	echo "No todos for the day"
 fi

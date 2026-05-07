@@ -2,9 +2,11 @@ include "input_output.kdl"
 
 include "layout.kdl"
 
-// Set wallpaper at start after starting the swww-daemon
-spawn-at-startup "swww-daemon"
-spawn-at-startup "swww img ~/Documents/wallpapers/kaguyahime037.jpg"
+// Set wallpaper at start after starting the awww-daemon
+spawn-at-startup "quickshell" "-c" "noctalia-shell"
+spawn-at-startup "lxqt-policykit-agent"
+// spawn-at-startup "batsignal -w 20 -c 15 -d 10 -f 100 -p -m 5"
+spawn-sh-at-startup "batsignal -w 20 -c 15 -d 10 -p -m 5"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -57,6 +59,12 @@ window-rule {
 window-rule {
     geometry-corner-radius 5
     clip-to-geometry true
+}
+
+// Set the overview wallpaper on the backdrop.
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
 }
 
 include "environment.kdl"
